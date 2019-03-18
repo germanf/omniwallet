@@ -42,7 +42,9 @@ angular.module("omniConfig")
 		"MY":"My",
 		"PUBKEY":"Pubkey",
 		"GRANT":"Grant",
-		"REVOKE":"Revoke"
+		"REVOKE":"Revoke",
+		"SPENDABLE":"Spendable",
+		"WATCHONLY":"Watch-Only"
 	},
 	"SETTINGS":{
 		"TITLE":"Account Settings",
@@ -261,6 +263,7 @@ angular.module("omniConfig")
 		},
 		"IMPORT":{
 			"VALID":"Must be a valid Bitcoin address",
+			"VALIDPRIV":"Must be a valid Private Key",
 			"EXISTS":"Bitcoin address is already listed",
 			"SUBMIT":"Add Address",
 			"OFFLINE":{
@@ -295,7 +298,11 @@ angular.module("omniConfig")
 		"EXPORT":{
 			"TITLE":"Export Wallet",
 			"NAME":"Backup Name",
-			"PASSPHRASE":"Enter Password"
+			"PASSPHRASE":"Enter Password",
+			"WARNING":"Security Warning",
+			"WARNMSG":"Your backup contains your the decrypted private keys for your wallet addresses.",
+                        "WARNMSG2":"ANYONE with access to this backup file can access your funds. Please store this file offline in a safe location.",
+			"WARNMSG3":"By clicking the following checkbox you confirm you have read this warning and understand there is nothing the Omniwallet team can do to protect your funds if your backup file is stolen"
 		},
 		"IDLE":{
 			"TITLE":"Do you want to continue your session?",
@@ -407,7 +414,9 @@ angular.module("omniConfig")
 			"VIEW":"View by",
 			"OPTIONS":"Add Address",
 			"WATCH":"Add Watch Only Address",
-			"OFFLINE":"Add Armory Offline Address"
+			"OFFLINE":"Add Armory Offline Address",
+			"SPENDABLE":"You can create transactions from these addresses",
+			"WATCHONLY":"Import address private key to enable spending"
 		},
 		"SEND":{
 			"TITLE":"Send",

@@ -174,8 +174,10 @@ def update():
   token=request.form['mfatoken'] if 'mfatoken' in request.form else None
   action=request.form['mfaaction'] if 'mfaaction' in request.form else None
 
-  question=unicode(str(request.form['question'])[:64],errors='replace') if 'question' in request.form else None
-  answer=unicode(str(request.form['answer'])[:32],errors='replace') if 'answer' in request.form else None
+  #question=unicode(str(request.form['question'])[:64],errors='replace') if 'question' in request.form else None
+  #answer=unicode(str(request.form['answer'])[:32],errors='replace') if 'answer' in request.form else None
+  question=request.form['question'][:64].encode('unicode-escape') if 'question' in request.form else None
+  answer=request.form['answer'][:32].encode('unicode-escape') if 'answer' in request.form else None
 
   if config.LOCALDEVBYPASSDB:
     session_challenge = session + "_challenge"
@@ -404,6 +406,8 @@ def failed_challenge(pow_challenge, nonce, difficulty):
 
 def encrypt_value(value):
   try:
+    if isinstance(value, unicode):
+      value=value.encode('latin-1')
     obj = AES.new(config.AESKEY, AES.MODE_CBC, config.AESIV)
     justify=int(((len(value)/16) + 1) * 16)
     message=value.rjust(justify)

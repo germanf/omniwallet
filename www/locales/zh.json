@@ -3,17 +3,17 @@
    		"ACTIONS":"操作",
 		"ADDRESS":"地址",
 		"AVAILABLE":"有效的",
-		"SENDABLE":"sendable",
+		"SENDABLE":"可发送",
 		"BALANCE":"余额",
 		"BITCOIN":"比特币",
    		"BROADCAST":"发布交易",
-		"SIGNMSG":"Sign Message",
+		"SIGNMSG":"签署消息",
    		"OVERVIEW":"总览",
    		"REMOVEADDRESS":"从钱包移除",
 		"ADDRESSES":"地址",
 		"ASSETS":"资产",
 		"ASSET":"资产",
-		"OVERVIEW":"Overview",
+		"OVERVIEW":"概观",
    		"SEND":"发送",
    		"VALUE":"价值",
 		"CREATEWALLET":"创建钱包",
@@ -22,7 +22,7 @@
 		"BACK":"后退",
 		"NAME":"姓名",
 		"SELECT":"选择",
-		"SERVERERROR":"Server Error, try again later",
+		"SERVERERROR":"服务器错误，请稍后再试",
 		"YES":"是",
 		"NO":"否",
 		"CANCEL":"退出",
@@ -31,7 +31,7 @@
 		"DONE":"完成",
 		"ACTIVECROWDSALES":"有效众筹",
 		"HISTORY":"历史记录",
-		"FEES":"Miner Fees (BTC)",
+		"FEES":"矿工费（BTC）",
 		"PASSWORD":"密码",
 		"DEFAULT":"默认",
 		"SUCCESS":"成功",
@@ -41,7 +41,9 @@
 		"MY":"我的",
 		"PUBKEY":"公钥",
 		"GRANT":"格兰特",
-		"REVOKE":"撤消"
+		"REVOKE":"撤消",
+		"SPENDABLE":"可支配",
+		"WATCHONLY":"手表只有"
 	},
 	"SETTINGS":{
 		"TITLE":"Account Settings",
@@ -261,6 +263,7 @@
 		},
 		"IMPORT":{
 			"VALID":"Must be a valid Bitcoin address",
+			"VALIDPRIV":"Must be a valid Private Key",
 			"EXISTS":"Bitcoin address is already listed",
 			"SUBMIT":"Add Address",
 			"OFFLINE":{
@@ -293,9 +296,13 @@
 			}
 		},
 		"EXPORT":{
-			"TITLE":"Export Wallet",
-			"NAME":"Backup Name",
-			"PASSPHRASE":"Enter Password"
+			"TITLE":"出口钱包",
+			"NAME":"备份名称",
+			"PASSPHRASE":"输入密码",
+			"WARNING":"安全警告",
+			"WARNMSG":"您的备份包含您的钱包地址的解密私钥。",
+			"WARNMSG2":"有权访问此备份文件的任何人都可以访问您的资金。 请将此文件脱机存储在安全的位置。",
+			"WARNMSG3":"通过单击以下复选框，您确认已阅读此警告，并了解如果您的备份文件被盗，Omniwallet团队无法保护您的资金"
 		},
 		"IDLE":{
 			"TITLE":"Do you want to continue your session?",
@@ -406,8 +413,10 @@
 			"TITLE":"我的钱包地址",
 			"VIEW":"浏览",
 			"OPTIONS":"添加钱包地址",
-			"WATCH":"Add Watch Only Address",
-			"OFFLINE":"添加离线地址"
+			"WATCH":"添加仅监视地址",
+			"OFFLINE":"添加离线地址",
+			"SPENDABLE":"您可以从这些地址创建交易",
+			"WATCHONLY":"导入地址私钥以启用支出"
 		},
 		"SEND":{
 			"TITLE":"发送",
@@ -416,9 +425,9 @@
 			"AMOUNT":"数量",
 			"TO":"接收地址",
 			"COST":"全部交易费用",
-			"PROTOCOL_COST": "Omni Protocol Transaction Cost",
-			"MODAL_TRANSACTION_COST":"Transaction Cost",
-			"MODAL_MINER": "Miner Fee",
+			"PROTOCOL_COST": "全方案协议交易成本",
+			"MODAL_TRANSACTION_COST":"交易成本",
+			"MODAL_MINER": "矿工费",
 			"FUNDS":"发送资产",
 			"TOKEN":"令牌",
 			"MODAL_AMOUNT":"数量",
@@ -427,7 +436,7 @@
 			"CONFIRM":"确认发送",
 			"AVAIL":"从可用地址",
 			"LOWFEE":"您的“发件人地址”没有足够的BTC完成此交易。请至少发送 {{ topupAmount }} BTC覆盖估计总交易成本。",
-			"UPDATE_FEE":"Re-estimate Transaction Cost"
+			"UPDATE_FEE":"重新估算交易成本"
 		},
 		"ASSETS":{
 			"ASSETS":"资产",

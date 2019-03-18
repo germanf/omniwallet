@@ -208,7 +208,7 @@ angular.module("omniServices")
                                 if (successData.pushed.match(/submitted|success/gi) != null) {
                                   $modalScope.waiting = false;
                                   $modalScope.transactionSuccess = true;
-                                  $modalScope.url = 'https://www.blocktrail.com/BTC/address/' + from + '/transactions';
+                                  $modalScope.url = 'https://www.omniexplorer.info/address/' + from;
                                 } else if (successData.status.match(/NOTOK/gi)) {
                                   $modalScope.waiting = false;
                                   $modalScope.transactionError = true;
@@ -326,7 +326,7 @@ angular.module("omniServices")
                     $scope.progressMessage = "";
                     $scope.progressColor = "";
                     $scope.exportInProgress=true;
-                    if (exportData.mfatoken.length==0) {
+                    if (exportData.mfatoken.length==0 || !Account.mfa) {
                       exportData.mfatoken="null";
                     }
                     Account.verify(Account.uuid, exportData.passphrase, exportData.mfatoken).then(function(result){
@@ -718,18 +718,19 @@ angular.module("omniServices")
             };
         
             $scope.ok = function(result) {
-              if (Bitcoin.Address.validate(result.address))
+              if (Bitcoin.Address.validate(result.address)) {
                 $modalInstance.close(result);
-              else
+              } else {
                 console.log('*** Invalid address: ' + result.address);
+              }
             };
         
             $scope.cancel = function() {
               $modalInstance.dismiss('cancel');
             };
             $scope.close = function() {
-                    $modalInstance.dismiss('close');
-                  };
+              $modalInstance.dismiss('close');
+            };
           };
           // Done Import Watch Only Form Code.
         
@@ -778,6 +779,7 @@ angular.module("omniServices")
                   };
           };
           // Done Import Private Key Form Code.
+
           // Begin Import Encrypted Key Form Code
           self.openImportEncryptedKeyForm = function() {
             var modalInstance = $modal.open({
